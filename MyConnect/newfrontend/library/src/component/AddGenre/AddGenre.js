@@ -11,7 +11,7 @@ export default function AddGenre() {
 
   const submitGenre = async () => {
     if (!genrename.trim()) {
-      alert('Genre name cannot be empty!'); // Validation
+      alert('Genre name cannot be empty!'); 
       return;
     }
 
@@ -22,11 +22,11 @@ export default function AddGenre() {
 
     try {
       await addGenre(genre).unwrap();
-      alert(`"${genrename}" has been successfully added!`); // Success alert
-      setGenreName(''); // Clear the input field
+      alert(`"${genrename}" has been successfully added!`);
+      setGenreName(''); 
     } catch (error) {
       console.error('Add failed:', error);
-      alert('Failed to add genre. Please try again.'); // Error alert
+      alert('Failed to add genre. Please try again.');
     }
   };
 
