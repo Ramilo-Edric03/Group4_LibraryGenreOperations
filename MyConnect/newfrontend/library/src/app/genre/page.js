@@ -4,7 +4,7 @@ import React from 'react'
 import { useState } from 'react'
 import { useGetGenresQuery } from '@/rtk/genreApi';
 import UpdateGenre from '@/component/UpdateGenre/UpdateGenre';
-import DeleteGenre from '@/component/DeleteGenre/DeleteGenre'; // New import
+import DeleteGenre from '@/component/DeleteGenre/DeleteGenre';
 
 export default function Genre() {
   const [operation, setOperation] = useState('add');

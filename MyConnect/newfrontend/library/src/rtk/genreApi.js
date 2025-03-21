@@ -29,7 +29,7 @@ export const genreApi = createApi({
                 }),
                 invalidatesTags: ["Genre"]
               }),
-            // Add new mutation
+           
             updateGenreStatus: builder.mutation({
                 query: ({ id, status }) => ({
                 url: `/genre/${id}/status`,

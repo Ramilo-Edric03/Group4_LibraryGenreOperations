@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useAddGenresMutation } from '@/rtk/genreApi';
+import ConfirmationButton from '@/component/ConfirmationButton/ConfirmationButton'; 
 
 export default function AddGenre() {
   const [genrename, setGenreName] = useState('');
@@ -9,7 +10,7 @@ export default function AddGenre() {
     setGenreName(event);
   };
 
-  const submitGenre = async () => {
+  const handleAddGenre = async () => {
     if (!genrename.trim()) {
       alert('Genre name cannot be empty!'); 
       return;
@@ -26,7 +27,7 @@ export default function AddGenre() {
       setGenreName(''); 
     } catch (error) {
       console.error('Add failed:', error);
-      alert('Failed to add genre. Please try again.');
+      alert('Failed to add genre. Please try again.'); 
     }
   };
 
@@ -38,13 +39,14 @@ export default function AddGenre() {
         value={genrename}
         onChange={(e) => setGenreNameText(e.target.value)}
       />
-      <button
-        style={{ backgroundColor: 'blue', color: 'white' }}
-        onClick={submitGenre}
-        disabled={isLoading}
-      >
-        {isLoading ? 'Adding...' : 'Add'}
-      </button>
+      <ConfirmationButton
+        mainButtonText="Add"
+        confirmButtonText="Confirm Add"
+        onConfirm={handleAddGenre}
+        mainButtonStyle={{ backgroundColor: 'blue', color: 'white' }}
+        confirmButtonStyle={{ backgroundColor: 'darkblue', color: 'white' }}
+        disabled={isLoading || !genrename.trim()} 
+      />
     </div>
   );
 }
